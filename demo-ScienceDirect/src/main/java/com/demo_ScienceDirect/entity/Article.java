@@ -1,29 +1,42 @@
 package com.demo_ScienceDirect.entity;
 
 
-import java.util.HashSet;
+import java.util.ArrayList;
+import java.util.List;
+import javax.persistence.CollectionTable;
+import javax.persistence.Column;
+import javax.persistence.ElementCollection;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
-import java.util.Set;
-
+@Entity
 public class Article {
-
-	int id;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long idArticle;
 	
 	private String title ;
 	
-	private String resume ; 
+	private String resume ;
 	
-	private Set<String> KeyWords = new HashSet<String>() ;
+	@Column(columnDefinition="TEXT")
+	private String contenu;
 	
+	@ElementCollection
+	@CollectionTable(name="keywords")
+	private List<String> KeyWords = new ArrayList<String>() ;
+	
+	@Enumerated(EnumType.STRING)
 	private EtatArticle etat ;
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
+	
+	@OneToMany(mappedBy = "article")
+	List<Contribution> contributions;
 
 	public String getTitle() {
 		return title;
@@ -41,14 +54,6 @@ public class Article {
 		this.resume = resume;
 	}
 
-	public Set<String> getKeyWords() {
-		return KeyWords;
-	}
-
-	public void setKeyWords(Set<String> keyWords) {
-		KeyWords = keyWords;
-	}
-
 	public EtatArticle getEtat() {
 		return etat;
 	}
@@ -56,6 +61,45 @@ public class Article {
 	public void setEtat(EtatArticle etat) {
 		this.etat = etat;
 	}
+
+	public Long getIdArticle() {
+		return idArticle;
+	}
+
+	public void setIdArticle(Long idArticle) {
+		this.idArticle = idArticle;
+	}
+
+	public String getContenu() {
+		return contenu;
+	}
+
+	public void setContenu(String contenu) {
+		this.contenu = contenu;
+	}
+
+	public List<String> getKeyWords() {
+		return KeyWords;
+	}
+
+	public void setKeyWords(List<String> keyWords) {
+		KeyWords = keyWords;
+	}
+
+	public Article(Long idArticle, String title, String resume, String contenu, List<String> keyWords,
+			EtatArticle etat) {
+		super();
+		this.idArticle = idArticle;
+		this.title = title;
+		this.resume = resume;
+		this.contenu = contenu;
+		KeyWords = keyWords;
+		this.etat = etat;
+	}
+	
+	public Article() {}
+	
+	
 	
 	
 }

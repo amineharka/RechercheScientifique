@@ -1,49 +1,26 @@
 package com.demo_ScienceDirect.entity;
 
-public class Author {
+import java.util.List;
 
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+@Entity
+@DiscriminatorValue("Author")
+public class Author extends Utilisateur{
 	
-	private int idAuthor ;
+	@Enumerated(EnumType.STRING)
+	private Affiliation afffiliation;
 	
-	private String first_name ;
-	
-	private String last_name ;
-	
-	private String mail;
-	
-	private String password ;
+	@OneToMany(mappedBy = "author")
+	List<Contribution> contributions;
 
-	public int getIdAuthor() {
-		return idAuthor;
-	}
-
-	public void setIdAuthor(int idAuthor) {
-		this.idAuthor = idAuthor;
-	}
-
-	public String getFirst_name() {
-		return first_name;
-	}
-
-	public void setFirst_name(String first_name) {
-		this.first_name = first_name;
-	}
-
-	public String getLast_name() {
-		return last_name;
-	}
-
-	public void setLast_name(String last_name) {
-		this.last_name = last_name;
-	}
-
-	public String getMail() {
-		return mail;
-	}
-
-	public void setMail(String mail) {
-		this.mail = mail;
-	}
 
 	public String getPassword() {
 		return password;
@@ -52,6 +29,23 @@ public class Author {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
+	public Affiliation getAfffiliation() {
+		return afffiliation;
+	}
+
+	public void setAfffiliation(Affiliation afffiliation) {
+		this.afffiliation = afffiliation;
+	}
+
+	public Author(int id, String login, String password, String first_name, String last_name,
+			Affiliation afffiliation) {
+		super(id, login, password, first_name, last_name);
+		this.afffiliation = afffiliation;
+	}
+	
+	public Author() {}
+	
 	
 	
 }

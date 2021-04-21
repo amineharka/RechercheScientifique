@@ -7,9 +7,15 @@ http://www.springframework.org/schema/beans/spring-beans.xsd
 http://www.springframework.org/schema/context 
 http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 
-<bean id="d" class="dao.DaomImpl2"></bean>
-<bean id="metier" class="metier.MetierImpl">
-<property name="dao" ref="d"></property>
+  <context:annotation-config/>
+  <context:component-scan base-package="com.demo_scienceDirect.entity"/>
+  
+  <bean id = "dataSource" 
+   class = "org.springframework.jdbc.datasource.DriverManagerDataSource">
+   <property name = "driverClassName" value = "com.mysql.jdbc.Driver"/>
+   <property name = "url" value = "jdbc:mysql://localhost:3306/recherchescientifique"/>
+   <property name = "username" value = "root"/>
+   <property name = "password" value = ""/>
 </bean>
 
 </beans>
