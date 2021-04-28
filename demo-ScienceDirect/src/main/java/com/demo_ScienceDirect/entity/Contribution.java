@@ -10,13 +10,13 @@ public class Contribution {
 	
 	
     @ManyToOne
-    @MapsId("articleId")
+    @MapsId("idArticle")
     @JoinColumn(name = "idArticle")
     private Article article;
 
     @ManyToOne
-    @MapsId("authorId")
-    @JoinColumn(name = "idAuthor")
+    @MapsId("id")
+    @JoinColumn(name = "id")
     private Author author;
     
     @Enumerated(EnumType.STRING)

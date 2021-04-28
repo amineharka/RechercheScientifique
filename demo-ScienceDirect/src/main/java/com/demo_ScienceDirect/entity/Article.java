@@ -28,9 +28,9 @@ public class Article {
 	@Column(columnDefinition="TEXT")
 	private String contenu;
 	
-	@ElementCollection
+	/*@ElementCollection
 	@CollectionTable(name="keywords")
-	private List<String> KeyWords = new ArrayList<String>() ;
+	private List<String> KeyWords = new ArrayList<String>() ;*/
 	
 	@Enumerated(EnumType.STRING)
 	private EtatArticle etat ;
@@ -78,22 +78,14 @@ public class Article {
 		this.contenu = contenu;
 	}
 
-	public List<String> getKeyWords() {
-		return KeyWords;
-	}
 
-	public void setKeyWords(List<String> keyWords) {
-		KeyWords = keyWords;
-	}
-
-	public Article(Long idArticle, String title, String resume, String contenu, List<String> keyWords,
+	public Article(Long idArticle, String title, String resume, String contenu,
 			EtatArticle etat) {
 		super();
 		this.idArticle = idArticle;
 		this.title = title;
 		this.resume = resume;
 		this.contenu = contenu;
-		KeyWords = keyWords;
 		this.etat = etat;
 	}
 	
