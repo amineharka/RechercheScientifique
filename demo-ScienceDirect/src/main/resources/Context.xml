@@ -29,7 +29,7 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans
     
     
  <context:annotation-config/>
-  <context:component-scan base-package="com.demo_ScienceDirect.dao, com.demo_ScienceDirect.services, , com.demo_ScienceDirect"/> 
+  <context:component-scan base-package="com.demo_ScienceDirect.dao, com.demo_ScienceDirect.services, com.demo_ScienceDirect"/> 
   
  <!--<bean id="dao" class="com.demo_ScienceDirect.dao.DaoArticleImpl"/>
 <bean id="service" class="com.demo_ScienceDirect.services.ArticleService">

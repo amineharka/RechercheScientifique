@@ -28,15 +28,19 @@ public class Article {
 	@Column(columnDefinition="TEXT")
 	private String contenu;
 	
-	/*@ElementCollection
+	@ElementCollection
 	@CollectionTable(name="keywords")
-	private List<String> KeyWords = new ArrayList<String>() ;*/
+	private List<String> KeyWords = new ArrayList<String>() ;
 	
 	@Enumerated(EnumType.STRING)
 	private EtatArticle etat ;
 	
 	@OneToMany(mappedBy = "article")
 	List<Contribution> contributions;
+	
+	@OneToMany(mappedBy = "article")
+	List<Evaluation> evaluations;
+
 
 	public String getTitle() {
 		return title;

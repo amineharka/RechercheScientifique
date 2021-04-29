@@ -1,7 +1,7 @@
 package com.demo_ScienceDirect.entity;
 
-public enum EtatArticle {
-	
+public enum EvaluationEnum {
+
+	en_cours,
 	accépter,
-	refuser
 }
