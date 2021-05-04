@@ -20,7 +20,7 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans
    <property name = "driverClassName" value = "com.mysql.jdbc.Driver"/>
    <property name = "url" value = "jdbc:mysql://localhost:3306/recherchescientifique?useSSL=false&amp;serverTimezone=UTC"/>
    <property name = "username" value = "root"/>
-   <property name = "password" value = ""/>
+   <property name = "password" value = "harka"/>
 </bean>
 
   
@@ -29,7 +29,7 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans
     
     
  <context:annotation-config/>
-  <context:component-scan base-package="com.demo_ScienceDirect.dao, com.demo_ScienceDirect.services, , com.demo_ScienceDirect"/> 
+  <context:component-scan base-package="com.demo_ScienceDirect.dao, com.demo_ScienceDirect.services, com.demo_ScienceDirect"/> 
   
  <!--<bean id="dao" class="com.demo_ScienceDirect.dao.DaoArticleImpl"/>
 <bean id="service" class="com.demo_ScienceDirect.services.ArticleService">

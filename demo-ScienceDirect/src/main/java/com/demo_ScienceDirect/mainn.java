@@ -1,5 +1,7 @@
 package com.demo_ScienceDirect;
 
+import static org.junit.Assert.assertTrue;
+
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.demo_ScienceDirect.dao.DaoArticle;
@@ -18,9 +20,15 @@ public class mainn {
 		// TODO Auto-generated method stub
 		//@SuppressWarnings("resource")
 		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("Context.xml");
-		//AuthorService service = context.getBean(AuthorService.class);
-		TestService testService = new TestService();
-		System.out.println(testService.somme(10,20));
+		ArticleService service = context.getBean(ArticleService.class);
+		
+		Article article = new Article();
+		article.setResume("article about mlkmlkl health");
+		System.out.println(article.getResume());
+
+		service.ajouterArticle(article);
+		System.out.println(article.getIdArticle());
+		
 	
 	}
 
