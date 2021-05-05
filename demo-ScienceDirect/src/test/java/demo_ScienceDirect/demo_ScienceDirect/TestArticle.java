@@ -1,8 +1,11 @@
 package demo_ScienceDirect.demo_ScienceDirect;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
+
+import java.util.Optional;
 
 import org.junit.After;
 import org.junit.Before;
@@ -39,7 +42,7 @@ public class TestArticle {
 
 	}
 	
-	
+	@Test
 	public void testAjouter()
 	{
 		Article article = new Article();
@@ -50,6 +53,7 @@ public class TestArticle {
 		
 	}
 	
+	@Test
 	public void testGetOne()
 	{
 		Article article = new Article();
@@ -64,8 +68,8 @@ public class TestArticle {
 		Article article = new Article();
 		article =articleService.ajouterArticle(article);
 		articleService.supprimerArticle(article.getIdArticle());
-		article = articleService.getOne(article.getIdArticle());
-		assertNull(article);
+		Optional<Article>article2 = articleService.getOne(article.getIdArticle());
+		assertFalse(article2.isPresent());
 	}
 	
 	

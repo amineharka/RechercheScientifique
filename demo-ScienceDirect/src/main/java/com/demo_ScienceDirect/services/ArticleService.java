@@ -38,8 +38,8 @@ public class ArticleService  {
 	
 	public Optional<Article> getOne(Long id)
 	{
-		Optional<Article> articleOptional = daoArticle.findById(id);
-		return articleOptional;
+		Optional<Article> article = daoArticle.findById(id);
+		return article;
 	}
 	
 

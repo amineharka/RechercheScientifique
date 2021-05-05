@@ -2,6 +2,8 @@ package com.demo_ScienceDirect;
 
 import static org.junit.Assert.assertTrue;
 
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.demo_ScienceDirect.dao.DaoArticle;
@@ -19,15 +21,13 @@ public class mainn {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		//@SuppressWarnings("resource")
-		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("Context.xml");
-		ArticleService service = context.getBean(ArticleService.class);
+		//ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("Context.xml");
+		//ArticleService service = context.getBean(ArticleService.class);
 		
-		Article article = new Article();
-		article.setResume("article about mlkmlkl health");
-		System.out.println(article.getResume());
-
-		service.ajouterArticle(article);
-		System.out.println(article.getIdArticle());
+		Logger rootLogger  = Logger.getRootLogger();
+		rootLogger.fatal("test");
+		
+		
 		
 	
 	}
