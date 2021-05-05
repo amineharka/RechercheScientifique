@@ -1,6 +1,9 @@
 package com.demo_ScienceDirect.services;
 
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Component;
@@ -11,7 +14,7 @@ import com.demo_ScienceDirect.dao.DaoArticle;
 import com.demo_ScienceDirect.entity.Article;
 
 
-@Component("service")
+@Component()
 public class ArticleService  {
 	
 	@Autowired
@@ -19,13 +22,25 @@ public class ArticleService  {
 	
 	
 	
-
+	public Article ajouterArticle(Article article) {
+		return daoArticle.save(article);	
+	}
 	
-	public void ajouterArticle(Article article) {
-		daoArticle.save(article);
+	public void supprimerArticle(Long id)
+	{
+		daoArticle.deleteById(id);
 	}
-	public void afficher() {
-		System.out.println("working");
+	
+	public List<Article> getAllArticles()
+	{
+		return daoArticle.findAll();
 	}
+	
+	public Optional<Article> getOne(Long id)
+	{
+		Optional<Article> article = daoArticle.findById(id);
+		return article;
+	}
+	
 
 }

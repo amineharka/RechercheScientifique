@@ -40,7 +40,7 @@ public class MyTest{
 	@Test
 	public void testSomme()
 	{
-		assertEquals(7,testService.somme(4, 2));
+		assertEquals(6,testService.somme(4, 2));
 	}
 	@Test
 	public void testSub()
