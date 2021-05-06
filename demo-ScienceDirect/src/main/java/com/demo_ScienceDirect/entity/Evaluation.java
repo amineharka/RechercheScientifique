@@ -14,7 +14,7 @@ public class Evaluation {
 
     @ManyToOne
     @JoinColumn(name = "id_refree")
-    private Refree refree;
+    private Referee refree;
     
 	@Enumerated(EnumType.STRING)
 	private EvaluationEnum evaluation ;
