@@ -12,20 +12,26 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.internal.TextListener;
 import org.junit.runner.JUnitCore;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.demo_ScienceDirect.entity.Article;
 import com.demo_ScienceDirect.services.ArticleService;
 import com.demo_ScienceDirect.services.TestService;
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(locations="classpath:Context.xml")
 
 public class TestArticle {
 
+	@Autowired
 	ArticleService articleService;
 	
 	@Before
 	public void setUp() throws Exception {
-		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("Context.xml");
-		articleService = context.getBean(ArticleService.class);
+		
 	}
 	
 	@After
@@ -59,7 +65,7 @@ public class TestArticle {
 		Article article = new Article();
 		article.setResume("Hello Me");
 		article = articleService.ajouterArticle(article);
-		assertEquals("Hello Me",articleService.getOne(1L).get().getResume());
+		assertEquals("Hello Me",articleService.getOne(article.getIdArticle()).get().getResume());
 	}
 	
 	@Test

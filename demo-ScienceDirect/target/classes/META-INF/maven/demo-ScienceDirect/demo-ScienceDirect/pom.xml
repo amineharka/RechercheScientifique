@@ -53,12 +53,31 @@
     	<artifactId>spring-data-commons</artifactId>
     	<version>${spring-data.version}</version>
 	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/org.springframework/spring-aop -->
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-aop</artifactId>
+    <version>${spring-framework.version}</version>
+</dependency>
+	
 
 	<dependency>
 		 <groupId>mysql</groupId>
 		 <artifactId>mysql-connector-java</artifactId>
 		 <version>8.0.19</version>
 	</dependency>
+	<dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>1.8.13</version>
+        </dependency>
+        <!-- aspectj支持 -->
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjrt</artifactId>
+            <version>1.8.9</version>
+        </dependency>
 
 	
 	<dependency>
