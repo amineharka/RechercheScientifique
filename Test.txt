@@ -1,1 +1,2 @@
-Le projet spring core contenent AOP et journalisation est: demo-ScienceDirect
+--Le projet spring core contenent AOP et journalisation est nommé: demo-ScienceDirect
+--Le projet Spring web contenant les services et controllers est nommé: SpringProject
