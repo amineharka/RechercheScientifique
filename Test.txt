@@ -1,0 +1,1 @@
+Le projet spring core contenent AOP et journalisation est: demo-ScienceDirect
